@@ -63,16 +63,16 @@ RM = "C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\User\Desktop\Other\HomeWork\Fundamentals Of Algorithmization And Programming\2_semester\2021.02.27_Lab1\Vector"
+CMAKE_SOURCE_DIR = "C:\Users\User\Desktop\Other\HomeWork\Fundamentals Of Algorithmization And Programming\2_semester\2021.02.27_Lab1\List"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\User\Desktop\Other\HomeWork\Fundamentals Of Algorithmization And Programming\2_semester\2021.02.27_Lab1\Vector\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\User\Desktop\Other\HomeWork\Fundamentals Of Algorithmization And Programming\2_semester\2021.02.27_Lab1\List\cmake-build-debug"
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Vector.dir/all
+all: CMakeFiles/2021_02_27_Lab1.dir/all
 
 .PHONY : all
 
@@ -82,36 +82,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Vector.dir/clean
+clean: CMakeFiles/2021_02_27_Lab1.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Vector.dir
+# Target rules for target CMakeFiles/2021_02_27_Lab1.dir
 
 # All Build rule for target.
-CMakeFiles/Vector.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vector.dir\build.make CMakeFiles/Vector.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vector.dir\build.make CMakeFiles/Vector.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\User\Desktop\Other\HomeWork\Fundamentals Of Algorithmization And Programming\2_semester\2021.02.27_Lab1\Vector\cmake-build-debug\CMakeFiles" --progress-num=1,2,3 "Built target Vector"
-.PHONY : CMakeFiles/Vector.dir/all
+CMakeFiles/2021_02_27_Lab1.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2021_02_27_Lab1.dir\build.make CMakeFiles/2021_02_27_Lab1.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2021_02_27_Lab1.dir\build.make CMakeFiles/2021_02_27_Lab1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\User\Desktop\Other\HomeWork\Fundamentals Of Algorithmization And Programming\2_semester\2021.02.27_Lab1\List\cmake-build-debug\CMakeFiles" --progress-num=1,2,3 "Built target 2021_02_27_Lab1"
+.PHONY : CMakeFiles/2021_02_27_Lab1.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Vector.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\User\Desktop\Other\HomeWork\Fundamentals Of Algorithmization And Programming\2_semester\2021.02.27_Lab1\Vector\cmake-build-debug\CMakeFiles" 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Vector.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\User\Desktop\Other\HomeWork\Fundamentals Of Algorithmization And Programming\2_semester\2021.02.27_Lab1\Vector\cmake-build-debug\CMakeFiles" 0
-.PHONY : CMakeFiles/Vector.dir/rule
+CMakeFiles/2021_02_27_Lab1.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\User\Desktop\Other\HomeWork\Fundamentals Of Algorithmization And Programming\2_semester\2021.02.27_Lab1\List\cmake-build-debug\CMakeFiles" 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/2021_02_27_Lab1.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\User\Desktop\Other\HomeWork\Fundamentals Of Algorithmization And Programming\2_semester\2021.02.27_Lab1\List\cmake-build-debug\CMakeFiles" 0
+.PHONY : CMakeFiles/2021_02_27_Lab1.dir/rule
 
 # Convenience name for target.
-Vector: CMakeFiles/Vector.dir/rule
+2021_02_27_Lab1: CMakeFiles/2021_02_27_Lab1.dir/rule
 
-.PHONY : Vector
+.PHONY : 2021_02_27_Lab1
 
 # clean rule for target.
-CMakeFiles/Vector.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vector.dir\build.make CMakeFiles/Vector.dir/clean
-.PHONY : CMakeFiles/Vector.dir/clean
+CMakeFiles/2021_02_27_Lab1.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\2021_02_27_Lab1.dir\build.make CMakeFiles/2021_02_27_Lab1.dir/clean
+.PHONY : CMakeFiles/2021_02_27_Lab1.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

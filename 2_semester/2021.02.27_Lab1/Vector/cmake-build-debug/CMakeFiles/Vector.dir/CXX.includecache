@@ -6,9 +6,27 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/main.cpp
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/Vector.cpp
+Vector.h
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/Vector.h
+
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/Vector.h
 iostream
 -
 iterator
 -
+
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/VectorIterator.h
+Vector.h
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/Vector.h
+
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/main.cpp
+iostream
+-
+Vector.h
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/Vector.h
+Vector.cpp
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/Vector.cpp
+VectorIterator.h
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/VectorIterator.h
 

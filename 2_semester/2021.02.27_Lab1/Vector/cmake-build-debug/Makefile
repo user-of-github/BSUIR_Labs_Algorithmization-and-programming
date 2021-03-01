@@ -142,6 +142,33 @@ Vector/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vector.dir\build.make CMakeFiles/Vector.dir/build
 .PHONY : Vector/fast
 
+Vector.obj: Vector.cpp.obj
+
+.PHONY : Vector.obj
+
+# target to build an object file
+Vector.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vector.dir\build.make CMakeFiles/Vector.dir/Vector.cpp.obj
+.PHONY : Vector.cpp.obj
+
+Vector.i: Vector.cpp.i
+
+.PHONY : Vector.i
+
+# target to preprocess a source file
+Vector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vector.dir\build.make CMakeFiles/Vector.dir/Vector.cpp.i
+.PHONY : Vector.cpp.i
+
+Vector.s: Vector.cpp.s
+
+.PHONY : Vector.s
+
+# target to generate assembly for a file
+Vector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Vector.dir\build.make CMakeFiles/Vector.dir/Vector.cpp.s
+.PHONY : Vector.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -178,6 +205,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Vector
+	@echo ... Vector.obj
+	@echo ... Vector.i
+	@echo ... Vector.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

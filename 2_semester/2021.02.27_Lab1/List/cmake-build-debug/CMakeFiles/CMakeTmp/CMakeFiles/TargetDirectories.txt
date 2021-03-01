@@ -1,3 +1,0 @@
-C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/List/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_f16ea.dir
-C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/List/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/edit_cache.dir
-C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/List/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/rebuild_cache.dir

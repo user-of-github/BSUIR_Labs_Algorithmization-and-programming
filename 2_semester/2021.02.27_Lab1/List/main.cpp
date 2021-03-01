@@ -1,6 +1,6 @@
 #include <iostream>
-#include <iterator>
 #include "List.h"
+#include "List.cpp"
 
 using std::cout;
 
@@ -13,6 +13,3 @@ int main()
 
     return 0;
 }
-
-
-

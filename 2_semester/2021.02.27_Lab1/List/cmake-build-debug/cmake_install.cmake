@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1
+# Install script for directory: C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/List
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/List/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

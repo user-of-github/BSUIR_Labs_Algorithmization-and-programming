@@ -82,6 +82,15 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/Vector.cpp">
+			<Option target="Vector"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/Vector.h">
+			<Option target="Vector"/>
+		</Unit>
+		<Unit filename="C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/VectorIterator.h">
+			<Option target="Vector"/>
+		</Unit>
 		<Unit filename="C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/Vector/main.cpp">
 			<Option target="Vector"/>
 		</Unit>
