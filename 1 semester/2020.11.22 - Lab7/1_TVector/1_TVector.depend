@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1606049460 source:c:\users\user\desktop\other\homework\Œ¿Ëœ\2020.11.22 - lab7\1_tvector\main.cpp
+	<iostream>
+	"Vector.h"
+
+1606048996 c:\users\user\desktop\other\homework\Œ¿Ëœ\2020.11.22 - lab7\1_tvector\vector.h
+	<iostream>
+
+1606048963 source:c:\users\user\desktop\other\homework\Œ¿Ëœ\2020.11.22 - lab7\1_tvector\vector.cpp
+	"Vector.h"
+

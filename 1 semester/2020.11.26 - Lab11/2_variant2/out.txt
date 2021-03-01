@@ -1,0 +1,2 @@
+2:prime
+1:composite

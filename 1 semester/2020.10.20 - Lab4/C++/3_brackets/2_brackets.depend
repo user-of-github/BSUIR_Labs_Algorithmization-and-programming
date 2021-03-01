@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1603193902 source:c:\users\user\desktop\other\homework\Œ¿Ëœ\2020.10.20 - lab4\2_brackets\main.cpp
+	<iostream>
+	<stack>
+	<vector>
+	<algorithm>
+
+1603307247 source:c:\users\user\desktop\other\homework\Œ¿Ëœ\2020.10.20 - lab4\c++\3_brackets\main.cpp
+	<iostream>
+	<stack>
+	<vector>
+	<algorithm>
+

@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1606138339 source:c:\users\user\desktop\other\homework\Œ¿Ëœ\2020.11.22 - lab7\2_deque\main.cpp
+	"Deque.h"
+
+1606138470 c:\users\user\desktop\other\homework\Œ¿Ëœ\2020.11.22 - lab7\2_deque\deque.h
+	<iostream>
+
+1606138231 source:c:\users\user\desktop\other\homework\Œ¿Ëœ\2020.11.22 - lab7\2_deque\deque.cpp
+	"Deque.h"
+

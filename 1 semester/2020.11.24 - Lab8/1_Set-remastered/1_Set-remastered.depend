@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1606565989 source:c:\users\user\desktop\other\homework\ÎÀèÏ\2020.11.24 - lab8\1_set-remastered\main.cpp
+	"Set.h"
+
+1606566017 source:c:\users\user\desktop\other\homework\ÎÀèÏ\2020.11.24 - lab8\1_set-remastered\set.cpp
+	"Set.h"
+
+1606565944 c:\users\user\desktop\other\homework\ÎÀèÏ\2020.11.24 - lab8\1_set-remastered\set.h
+	<iostream>
+

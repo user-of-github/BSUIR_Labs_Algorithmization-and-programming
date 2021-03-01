@@ -1,0 +1,14 @@
+13
+053501 Slutski 10
+053501 Slutski 9
+053501 Slutski 8
+053501 Slutski 7
+053504 Khasanov 9
+053504 Khasanov 8
+053504 Khasanov 6
+053504 Khasanov 5
+053501 Slutski 9
+053505 Geraschenko 10
+053501 Lazareu 10
+053505 Geraschenko 5
+053501 Lazareu 5

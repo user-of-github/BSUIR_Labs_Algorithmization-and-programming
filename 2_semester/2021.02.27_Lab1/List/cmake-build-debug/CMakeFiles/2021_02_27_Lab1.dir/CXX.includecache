@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/List.cpp
+List.h
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/List.h
+
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/List.h
+iostream
+-
+iterator
+-
+
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/main.cpp
+iostream
+-
+iterator
+-
+List.h
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.02.27_Lab1/List.h
+

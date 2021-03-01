@@ -1,0 +1,6 @@
+C:\Users\User\Desktop\Other\HomeWork\ОАиП\2020.10.20 - Lab4\C#\beautifulNumber_1\obj\Debug\beautifulNumber_1.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Other\HomeWork\ОАиП\2020.10.20 - Lab4\C#\beautifulNumber_1\obj\Debug\beautifulNumber_1.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Other\HomeWork\ОАиП\2020.10.20 - Lab4\C#\beautifulNumber_1\bin\Debug\beautifulNumber_1.exe
+C:\Users\User\Desktop\Other\HomeWork\ОАиП\2020.10.20 - Lab4\C#\beautifulNumber_1\bin\Debug\beautifulNumber_1.pdb
+C:\Users\User\Desktop\Other\HomeWork\ОАиП\2020.10.20 - Lab4\C#\beautifulNumber_1\obj\Debug\beautifulNumber_1.exe
+C:\Users\User\Desktop\Other\HomeWork\ОАиП\2020.10.20 - Lab4\C#\beautifulNumber_1\obj\Debug\beautifulNumber_1.pdb

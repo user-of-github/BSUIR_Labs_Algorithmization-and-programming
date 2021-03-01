@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1608399596 source:c:\users\user\desktop\other\homework\Œ¿Ëœ\2020.12.04 - lab12\calculator\main.cpp
+	<iostream>
+	"calculator.h"
+
+1612965621 c:\users\user\desktop\other\homework\Œ¿Ëœ\2020.12.04 - lab12\calculator\calculator.h
+	<map>
+	<stack>
+
+1608230791 source:c:\users\user\desktop\other\homework\Œ¿Ëœ\2020.12.04 - lab12\calculator\calculator.cpp
+	"calculator.h"
+

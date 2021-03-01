@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1608490237 source:c:\users\user\desktop\other\homework\ÎÀèÏ\2020.12.18 - lab13\university\main.cpp
+	<fstream>
+	"university.h"
+
+1608490144 c:\users\user\desktop\other\homework\ÎÀèÏ\2020.12.18 - lab13\university\university.h
+	<iostream>
+	<vector>
+
+1608490282 source:c:\users\user\desktop\other\homework\ÎÀèÏ\2020.12.18 - lab13\university\university.cpp
+	"university.h"
+
