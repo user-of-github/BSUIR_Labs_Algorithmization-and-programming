@@ -13,7 +13,9 @@ int main()
     test2 = (test);
     test2.Print();
 
-    for (auto item : test2)
-        cout<<item;
+    for (auto &item : test2)
+        item = 6;
+
+    test2.Print();
     return 0;
 }

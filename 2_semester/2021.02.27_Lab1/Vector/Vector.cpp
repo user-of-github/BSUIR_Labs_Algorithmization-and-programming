@@ -8,6 +8,16 @@ void Vector<T>::CopyArray(const T *from, T *to, const unsigned int &how_many_ele
 }
 
 template<class T>
+void Vector<T>::CopyFullInstance(const Vector<T> &other)
+{
+    delete[] this->array_;
+    this->size_ = other.size_;
+    this->capacity_ = other.capacity_;
+    this->array_ = new T[this->capacity_];
+    CopyArray(other.array_, this->array_, this->size_);
+}
+
+template<class T>
 Vector<T>::Vector():size_(0), capacity_(kStartCapacity)
 {
     this->array_ = new T[this->capacity_];
@@ -37,17 +47,16 @@ Vector<T>::Vector(const std::initializer_list<T> &list):capacity_(list.size()), 
 }
 
 template<class T>
-Vector<T>::Vector(const Vector<T> &object):size_(object.size_), capacity_(object.capacity_)
+Vector<T>::Vector(const Vector<T> &other):array_(nullptr)
 {
-    this->array_ = new T[this->capacity_];
-    this->CopyArray(object.array_, this->array_, this->size_);
+    this->CopyFullInstance(other);
 }
 
 template<class T>
-Vector<T>::Vector(Vector<T> &&other) noexcept :size_(other.size_), capacity_(other.capacity_)
+Vector<T>::Vector(Vector<T> &&other) noexcept: array_(nullptr)
 {
+    this->CopyFullInstance(other);
     other.capacity_ = other.size_ = 0;
-    this->CopyArray(other.array_, this->array_, this->size_);
     delete[] other.array_;
 }
 
@@ -66,6 +75,7 @@ void Vector<T>::Resize(const unsigned int &new_capacity)
     this->capacity_ = new_capacity;
     this->array_ = new T[this->capacity_];
     this->CopyArray(copy, this->array_, this->size_);
+    delete[] copy;
 }
 
 template<class T>
@@ -88,9 +98,10 @@ void Vector<T>::PopBack()
 template<class T>
 void Vector<T>::Print() const
 {
+    std::cout << "(" << this->size_ << "):{ ";
     for (unsigned int counter = 0; counter < this->size_; ++counter)
         std::cout << this->array_[counter] << " ";
-    std::cout << "\n";
+    std::cout << "}\n";
 }
 
 template<class T>
@@ -108,37 +119,28 @@ unsigned int Vector<T>::Capacity() const
 template<class T>
 bool Vector<T>::Empty() const
 {
-    return static_cast<bool>(this->size_);
+    return !static_cast<bool>(this->size_);
 }
 
 template<class T>
-T Vector<T>::operator[](const unsigned int &index) const
+T &Vector<T>::operator[](const unsigned int &index)
 {
-    return (index < this->size_ ? this->array_[index] : T());
+    if (index < this->size_)
+        return this->array_[index];
 }
 
 template<class T>
-Vector<T> &Vector<T>::operator=(const Vector<T> &object)
+Vector<T> &Vector<T>::operator=(const Vector<T> &other)
 {
-    if (this != &object)
-    {
-        delete[] this->array_;
-        this->size_ = object.size_;
-        this->capacity_ = object.capacity_;
-        this->array_ = new T[this->capacity_];
-        CopyArray(object.array_, this->array_, this->size_);
-    }
+    this->array_ = nullptr;
+    this->CopyFullInstance(other);
     return *this;
 }
 
 template<class T>
 Vector<T> &Vector<T>::operator=(Vector<T> &&other) noexcept
 {
-    delete this->array_;
-    this->size_ = other.size_;
-    this->capacity_ = other.capacity_;
-    this->array_ = new T[this->capacity_];
-    this->CopyArray(other.array_, this->array_, this->size_);
+    this->CopyFullInstance(other);
     delete[] other.array_;
     other.size_ = other.capacity_ = 0;
     return *this;

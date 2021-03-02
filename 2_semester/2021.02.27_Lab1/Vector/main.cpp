@@ -4,31 +4,45 @@
 #include "VectorIterator.h"
 
 using std::cout;
-using std::cin;
 
 int main()
 {
-    Vector<int> test({1, 2, 3, 4});
-    Vector<int> test2 = Vector<int>(5, 6);
+    Vector<int> numbers({1, 2, 3, 4});
+    Vector<int> numbers_copy = Vector<int>(numbers);
 
-    //test2.Print();
+    numbers.Print(); // (4):{ 1 2 3 4 }
+    numbers_copy.Print(); // (4):{ 1 2 3 4 }
 
-    //test2 = std::move(test);
+    numbers[3] = 2021;
 
-    //test2.Print();
+    numbers_copy = std::move(numbers);
+    numbers_copy.Print(); // (4):{ 1 2 3 2021 }
+    numbers.Print(); // (0):{ }
 
-    auto test3 = Vector<int>();
-    for (unsigned counter = 10; counter >= 6; --counter)
-        test3.PushBack(counter);
+    Vector<int> one_more_copy = std::move(numbers_copy);
+    one_more_copy.Print(); // (4):{ 1 2 3 2021 }
 
-    //test3.Print();
-    test2 = test3;
-    //test2.Print();
-    test2 = std::move(test);
-    //test2.Print();
+    one_more_copy.PushBack(20);
+    one_more_copy.Print(); // (5):{ 1 2 3 2021 20 }
 
-    for (auto item : test2)
-        cout<<item;
+    for (unsigned int counter = 0; counter < 7; ++counter)
+        one_more_copy.PopBack();
+    one_more_copy.Print(); // (0):{ }
+
+    for (int counter = -556; counter < -545; ++counter)
+    {
+        one_more_copy.PushBack(counter);
+    }
+
+    for (const auto &item : one_more_copy)
+    {
+        cout << item << " "; // -556 -555 -554 -553 -552 -551 -550 -549 -548 -547 -546
+    }
+    cout << "\n";
+
+    for (auto &item : one_more_copy)
+        item = 2021;
+    one_more_copy.Print(); // (11):{ 2021 2021 2021 2021 2021 2021 2021 2021 2021 2021 2021 }
 
     return 0;
 }

@@ -149,7 +149,7 @@ void List<T>::Print() const
     auto *item = this->first_;
     if (item == nullptr)
         cout << "Empty";
-    cout<<"{";
+    cout<<"{ ";
     while (item != nullptr)
     {
         cout << item->value_ << " ";

@@ -1,10 +1,5 @@
-//
-// Created by User on 01-Mar-21.
-//
-
 #ifndef VECTOR_VECTORITERATOR_H
 #define VECTOR_VECTORITERATOR_H
-
 
 #include "Vector.h"
 
@@ -13,6 +8,7 @@ class Vector<T>::Iterator : std::iterator<std::random_access_iterator_tag, T>
 {
 private:
     T *object_;
+
 public:
     Iterator() : object_(nullptr)
     {};
@@ -27,13 +23,13 @@ public:
 
     Iterator &operator++()
     {
-        this->object_++;
+        ++this->object_;
         return *this;
     }
 
     Iterator &operator--()
     {
-        this->object_--;
+        --this->object_;
         return *this;
     }
 
@@ -57,6 +53,5 @@ public:
         return this->object_ != other.object_;
     }
 };
-
 
 #endif //VECTOR_VECTORITERATOR_H

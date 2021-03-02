@@ -19,6 +19,7 @@ private:
 
     void CopyArray(const T *, T *, const unsigned int &);
 
+    void CopyFullInstance(const Vector<T> &);
 public:
     class Iterator;
 
@@ -50,7 +51,7 @@ public:
 
     bool Empty() const;
 
-    T operator[](const unsigned int &) const;
+    T &operator[](const unsigned int &);
 
     Vector<T> &operator=(const Vector<T> &);
 
