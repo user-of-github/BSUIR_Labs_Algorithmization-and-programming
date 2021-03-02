@@ -1,7 +1,3 @@
-//
-// Created by User on 28-Feb-21.
-//
-
 #include "List.h"
 
 template<class T>
@@ -9,54 +5,25 @@ class List<T>::ListItem
 {
 public:
     T value_;
-    ListItem *previous_;
-    ListItem *next_;
+    ListItem *previous_, *next_;
 
     explicit ListItem(const T &);
 };
 
 template<class T>
-void List<T>::CopyListFrom(List<T> &from)
+void List<T>::CopyListFrom(const List<T> &from)
 {
-    //std::cout<<"CopyListFrom STRTED\n";
     while (!this->Empty())
         this->PopBack();
     this->size_ = 0;
 
-
-    auto *current = from.first_;
+    ListItem *current = from.first_;
     while (current != nullptr)
     {
         this->PushBack(current->value_);
-        //std::cout<<"Moving"<<current->value_<<"\n";
         current = current->next_;
     }
 }
-
-template<class T>
-class List<T>::Iterator : std::iterator<std::bidirectional_iterator_tag, T>
-{
-private:
-    ListItem *object_;
-public:
-    Iterator();
-
-    explicit Iterator(ListItem *);
-
-    ListItem *operator->();
-
-    T &operator*();
-
-    ListItem operator*() const;
-
-    Iterator &operator++();
-
-    Iterator &operator--();
-
-    bool operator==(const Iterator &it) const;
-
-    bool operator!=(const Iterator &it) const;
-};
 
 
 template<class T>
@@ -68,7 +35,7 @@ List<T>::List(): size_(0), first_(nullptr), last_(nullptr)
 {}
 
 template<class T>
-List<T>::List(const std::initializer_list<T> &data):size_(0)
+List<T>::List(const std::initializer_list<T> &data): size_(0), first_(nullptr), last_(nullptr)
 {
     unsigned int counter = 0;
     for (auto &item : data)
@@ -86,7 +53,7 @@ List<T>::List(const List<T> &other):size_(0), first_(nullptr), last_(nullptr)
 }
 
 template<class T>
-List<T>::List(List<T> &&other) noexcept:size_(0)
+List<T>::List(List<T> &&other) noexcept: size_(0), first_(nullptr), last_(nullptr)
 {
     this->size_ = 0;
     this->CopyListFrom(other);
@@ -182,12 +149,13 @@ void List<T>::Print() const
     auto *item = this->first_;
     if (item == nullptr)
         cout << "Empty";
+    cout<<"{";
     while (item != nullptr)
     {
         cout << item->value_ << " ";
         item = item->next_;
     }
-    cout << "\n";
+    cout << "}\n";
 }
 
 template<class T>
@@ -209,7 +177,7 @@ typename List<T>::Iterator List<T>::end()
 }
 
 template<class T>
-List<T> &List<T>::operator=(List<T> &other)
+List<T> &List<T>::operator=(const List<T> &other)
 {
     while (!this->Empty())
         this->PopBack();
@@ -229,58 +197,5 @@ List<T> &List<T>::operator=(List<T> &&other) noexcept
     while (!other.Empty())
         other.PopBack();
 
-    return *this;
-}
-
-
-template<class T>
-List<T>::Iterator::Iterator(): object_(nullptr)
-{}
-
-template<class T>
-List<T>::Iterator::Iterator(ListItem *link): object_(link)
-{}
-
-template<class T>
-T &List<T>::Iterator::operator*()
-{
-    return this->object_->value_;
-}
-
-template<class T>
-typename List<T>::ListItem *List<T>::Iterator::operator->()
-{
-    return this->object_;
-}
-
-template<class T>
-typename List<T>::ListItem List<T>::Iterator::operator*() const
-{
-    return *this->object_;
-}
-
-template<class T>
-typename List<T>::Iterator &List<T>::Iterator::operator--()
-{
-    this->object_ = this->object_->previous_;
-    return *this;
-}
-
-template<class T>
-bool List<T>::Iterator::operator==(const List<T>::Iterator &it) const
-{
-    return this->object_ == it.object_;
-}
-
-template<class T>
-bool List<T>::Iterator::operator!=(const List<T>::Iterator &it) const
-{
-    return this->object_ != it.object_;
-}
-
-template<class T>
-typename List<T>::Iterator &List<T>::Iterator::operator++()
-{
-    this->object_ = this->object_->next_;
     return *this;
 }

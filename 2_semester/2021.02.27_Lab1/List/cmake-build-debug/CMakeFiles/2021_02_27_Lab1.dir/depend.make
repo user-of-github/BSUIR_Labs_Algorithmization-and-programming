@@ -6,5 +6,6 @@ CMakeFiles/2021_02_27_Lab1.dir/List.cpp.obj: ../List.h
 
 CMakeFiles/2021_02_27_Lab1.dir/main.cpp.obj: ../List.cpp
 CMakeFiles/2021_02_27_Lab1.dir/main.cpp.obj: ../List.h
+CMakeFiles/2021_02_27_Lab1.dir/main.cpp.obj: ../ListIterator.h
 CMakeFiles/2021_02_27_Lab1.dir/main.cpp.obj: ../main.cpp
 

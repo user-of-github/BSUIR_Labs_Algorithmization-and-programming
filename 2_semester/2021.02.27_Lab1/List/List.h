@@ -1,7 +1,3 @@
-//
-// Created by User on 28-Feb-21.
-//
-
 #ifndef INC_2021_02_27_LAB1_LIST_H
 #define INC_2021_02_27_LAB1_LIST_H
 
@@ -10,17 +6,16 @@
 
 using std::cout;
 
-
 template<class T>
 class List
 {
 private:
     class ListItem;
 
-    ListItem *first_ = nullptr, *last_ = nullptr;
-    unsigned int size_ = 0;
+    ListItem *first_, *last_;
+    unsigned int size_;
 
-    void CopyListFrom(List<T> &);
+    void CopyListFrom(const List<T> &);
 
 public:
     class Iterator;
@@ -51,11 +46,9 @@ public:
 
     Iterator end();
 
-    List<T> &operator=(List<T> &);
+    List<T> &operator=(const List<T> &);
 
     List<T> &operator=(List<T> &&) noexcept;
-
 };
-
 
 #endif //INC_2021_02_27_LAB1_LIST_H
