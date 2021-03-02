@@ -11,5 +11,15 @@ int main()
     for (auto item : test)
         cout << item << ' ';
 
+    List<int> test2({42, 42, 42, 42});
+
+    for (auto item : test2)
+        cout << item << ' ';
+
+    test2 = (test);
+    for (auto item : test2)
+        cout << item << ' ';
+
+    
     return 0;
 }

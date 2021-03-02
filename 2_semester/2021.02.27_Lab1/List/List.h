@@ -17,8 +17,10 @@ class List
 private:
     class ListItem;
 
-    ListItem *first_, *last_;
-    unsigned int size_;
+    ListItem *first_ = nullptr, *last_ = nullptr;
+    unsigned int size_ = 0;
+
+    void CopyListFrom(List<T> &);
 
 public:
     class Iterator;
@@ -26,6 +28,10 @@ public:
     List();
 
     List(const std::initializer_list<T> &);
+
+    List(const List<T> &other);
+
+    List(List<T> &&other) noexcept;
 
     void PushBack(const T &);
 
@@ -44,6 +50,10 @@ public:
     Iterator begin();
 
     Iterator end();
+
+    List<T> &operator=(List<T> &);
+
+    List<T> &operator=(List<T> &&) noexcept;
 
 };
 

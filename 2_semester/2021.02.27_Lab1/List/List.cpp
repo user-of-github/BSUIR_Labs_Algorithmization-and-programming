@@ -16,6 +16,24 @@ public:
 };
 
 template<class T>
+void List<T>::CopyListFrom(List<T> &from)
+{
+    //std::cout<<"CopyListFrom STRTED\n";
+    while (!this->Empty())
+        this->PopBack();
+    this->size_ = 0;
+
+
+    auto *current = from.first_;
+    while (current != nullptr)
+    {
+        this->PushBack(current->value_);
+        //std::cout<<"Moving"<<current->value_<<"\n";
+        current = current->next_;
+    }
+}
+
+template<class T>
 class List<T>::Iterator : std::iterator<std::bidirectional_iterator_tag, T>
 {
 private:
@@ -59,6 +77,21 @@ List<T>::List(const std::initializer_list<T> &data):size_(0)
         this->PushBack(item);
     }
     this->size_ = counter;
+}
+
+template<class T>
+List<T>::List(const List<T> &other):size_(0), first_(nullptr), last_(nullptr)
+{
+    this->CopyListFrom(other);
+}
+
+template<class T>
+List<T>::List(List<T> &&other) noexcept:size_(0)
+{
+    this->size_ = 0;
+    this->CopyListFrom(other);
+    while (!other.Empty())
+        other.PopBack();
 }
 
 template<class T>
@@ -160,7 +193,7 @@ void List<T>::Print() const
 template<class T>
 bool List<T>::Empty() const
 {
-    return static_cast<bool>(this->size_);
+    return !static_cast<bool>(this->size_);
 }
 
 template<class T>
@@ -174,6 +207,31 @@ typename List<T>::Iterator List<T>::end()
 {
     return Iterator(this->last_->next_);
 }
+
+template<class T>
+List<T> &List<T>::operator=(List<T> &other)
+{
+    while (!this->Empty())
+        this->PopBack();
+
+    this->CopyListFrom(other);
+
+    return *this;
+}
+
+template<class T>
+List<T> &List<T>::operator=(List<T> &&other) noexcept
+{
+    while (!this->Empty())
+        this->PopBack();
+    this->CopyListFrom(other);
+
+    while (!other.Empty())
+        other.PopBack();
+
+    return *this;
+}
+
 
 template<class T>
 List<T>::Iterator::Iterator(): object_(nullptr)
