@@ -12,10 +12,14 @@ class List
 private:
     class ListItem;
 
-    ListItem *first_, *last_;
+    ListItem *first_, *last_, *pseudo_last_;
     unsigned int size_;
 
     void CopyListFrom(const List<T> &);
+
+    void CreatePseudoLast();
+
+    void UpdatePseudoLast();
 
 public:
     class Iterator;

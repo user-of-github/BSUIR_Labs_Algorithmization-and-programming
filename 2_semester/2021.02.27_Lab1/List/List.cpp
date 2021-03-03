@@ -7,6 +7,8 @@ public:
     T value_;
     ListItem *previous_, *next_;
 
+    ListItem();
+
     explicit ListItem(const T &);
 };
 
@@ -15,16 +17,39 @@ void List<T>::CopyListFrom(const List<T> &from)
 {
     while (!this->Empty())
         this->PopBack();
-    this->size_ = 0;
 
     ListItem *current = from.first_;
-    while (current != nullptr)
+    while (current != from.pseudo_last_ && current != nullptr)
     {
         this->PushBack(current->value_);
         current = current->next_;
     }
 }
 
+template<class T>
+void List<T>::CreatePseudoLast()
+{
+    this->pseudo_last_ = new ListItem();
+    this->pseudo_last_->next_ = nullptr;
+    this->pseudo_last_->previous_ = nullptr;
+}
+
+template<class T>
+void List<T>::UpdatePseudoLast()
+{
+    if (this->pseudo_last_ == nullptr)
+        this->CreatePseudoLast();
+
+    if (this->last_ != nullptr)
+    {
+        this->last_->next_ = this->pseudo_last_;
+        this->pseudo_last_->previous_ = this->last_;
+    }
+}
+
+template<class T>
+List<T>::ListItem::ListItem(): next_(nullptr), previous_(nullptr)
+{}
 
 template<class T>
 List<T>::ListItem::ListItem(const T &value): value_(value), next_(nullptr), previous_(nullptr)
@@ -32,11 +57,14 @@ List<T>::ListItem::ListItem(const T &value): value_(value), next_(nullptr), prev
 
 template<class T>
 List<T>::List(): size_(0), first_(nullptr), last_(nullptr)
-{}
+{
+    this->CreatePseudoLast();
+}
 
 template<class T>
 List<T>::List(const std::initializer_list<T> &data): size_(0), first_(nullptr), last_(nullptr)
 {
+    this->CreatePseudoLast();
     unsigned int counter = 0;
     for (auto &item : data)
     {
@@ -49,16 +77,21 @@ List<T>::List(const std::initializer_list<T> &data): size_(0), first_(nullptr), 
 template<class T>
 List<T>::List(const List<T> &other):size_(0), first_(nullptr), last_(nullptr)
 {
+    this->CreatePseudoLast();
     this->CopyListFrom(other);
+    this->UpdatePseudoLast();
 }
 
 template<class T>
 List<T>::List(List<T> &&other) noexcept: size_(0), first_(nullptr), last_(nullptr)
 {
+    this->CreatePseudoLast();
     this->size_ = 0;
     this->CopyListFrom(other);
     while (!other.Empty())
         other.PopBack();
+    this->UpdatePseudoLast();
+    other.CreatePseudoLast();
 }
 
 template<class T>
@@ -77,16 +110,17 @@ void List<T>::PushBack(const T &newItem)
     }
     this->last_ = new_child;
     ++this->size_;
+
+    this->UpdatePseudoLast();
 }
 
 template<class T>
 void List<T>::PushFront(const T &newItem)
 {
     auto *new_child = new ListItem(newItem);
-    this->first_ = new_child;
     if (this->size_ == 0)
     {
-        this->last_ = new_child;
+        this->last_ = this->first_ = new_child;
     }
     else
     {
@@ -94,7 +128,9 @@ void List<T>::PushFront(const T &newItem)
         new_child->next_ = current_first;
         current_first->previous_ = new_child;
     }
+    this->first_ = new_child;
     ++this->size_;
+    this->UpdatePseudoLast();
 }
 
 template<class T>
@@ -102,18 +138,19 @@ void List<T>::PopBack()
 {
     if (this->size_ != 0)
     {
-        auto *current_last = this->last_;
-        if (this->size_ == 1)
+        --this->size_;
+        if (this->size_ == 0)
         {
             this->first_ = this->last_ = nullptr;
+            this->CreatePseudoLast();
+            return;
         }
-        else
-        {
-            current_last->previous_->next_ = nullptr;
-            this->last_ = current_last->previous_;
-        }
+
+        auto *current_last = this->last_;
+        current_last->previous_->next_ = nullptr;
+        this->last_ = current_last->previous_;
         delete current_last;
-        --this->size_;
+        this->UpdatePseudoLast();
     }
 }
 
@@ -122,18 +159,19 @@ void List<T>::PopFront()
 {
     if (this->size_ > 0)
     {
-        auto *current_first = this->first_;
-        if (this->size_ == 1)
+        --this->size_;
+        if (this->size_ == 0)
         {
             this->first_ = this->last_ = nullptr;
+            this->CreatePseudoLast();
+            return;
         }
-        else
-        {
-            this->first_ = current_first->next_;
-            current_first->next_->previous_ = nullptr;
-        }
+
+        auto *current_first = this->first_;
+        this->first_ = current_first->next_;
+        current_first->next_->previous_ = nullptr;
         delete current_first;
-        --this->size_;
+        this->UpdatePseudoLast();
     }
 }
 
@@ -147,10 +185,10 @@ template<class T>
 void List<T>::Print() const
 {
     auto *item = this->first_;
-    if (item == nullptr)
-        cout << "Empty";
-    cout<<"{ ";
-    while (item != nullptr)
+
+    cout << "(" << this->size_ << "): ";
+    cout << "{ ";
+    while (item != this->pseudo_last_ && item != nullptr)
     {
         cout << item->value_ << " ";
         item = item->next_;
@@ -173,29 +211,26 @@ typename List<T>::Iterator List<T>::begin()
 template<class T>
 typename List<T>::Iterator List<T>::end()
 {
-    return Iterator(this->last_->next_);
+    return Iterator(this->pseudo_last_);
 }
 
 template<class T>
 List<T> &List<T>::operator=(const List<T> &other)
 {
-    while (!this->Empty())
-        this->PopBack();
-
     this->CopyListFrom(other);
-
+    this->UpdatePseudoLast();
     return *this;
 }
 
 template<class T>
 List<T> &List<T>::operator=(List<T> &&other) noexcept
 {
-    while (!this->Empty())
-        this->PopBack();
     this->CopyListFrom(other);
+    this->UpdatePseudoLast();
 
     while (!other.Empty())
         other.PopBack();
 
+    other.CreatePseudoLast();
     return *this;
 }
