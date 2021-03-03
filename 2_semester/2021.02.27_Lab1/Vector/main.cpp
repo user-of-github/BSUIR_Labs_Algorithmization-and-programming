@@ -7,7 +7,7 @@ using std::cout;
 
 int main()
 {
-    Vector<int> numbers({1, 2, 3, 4});
+    Vector<int> numbers = {1, 2, 3, 4};
     Vector<int> numbers_copy = Vector<int>(numbers);
 
     numbers.Print(); // (4):{ 1 2 3 4 }
@@ -41,8 +41,18 @@ int main()
     cout << "\n";
 
     for (auto &item : one_more_copy)
+    {
         item = 2021;
+    }
     one_more_copy.Print(); // (11):{ 2021 2021 2021 2021 2021 2021 2021 2021 2021 2021 2021 }
+
+
+    // REVERSE
+    for (auto it = --one_more_copy.end(); it != one_more_copy.begin(); --it)
+    {
+        cout << *it << " "; // 2021 2021 2021 2021 2021 2021 2021 2021 2021 2021
+    }
+
 
     return 0;
 }
