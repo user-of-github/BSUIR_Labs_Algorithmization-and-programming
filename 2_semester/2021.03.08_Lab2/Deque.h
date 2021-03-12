@@ -8,13 +8,15 @@
 #include <iostream>
 #include <vector>
 #include <array>
-#include <iterator>
+#include <memory>
 
 using std::cout;
 using std::vector;
 using std::array;
 using std::size_t;
 using std::ostream;
+using std::shared_ptr;
+using std::make_shared;
 
 template<typename T>
 class Deque
@@ -28,25 +30,26 @@ public:
 
     void PushFront(const T &);
 
-    void PopBack(const T &);
+    void PopBack();
 
-    void PopFront(const T &);
+    void PopFront();
 
-    size_t Size() const;
+    constexpr size_t Size() const;
 
-    void Print();
+
+    template<typename T1>
+    friend ostream &operator<<(ostream &, const Deque<T1> &);
 
 private:
     static const size_t kBlockSize = 2;
     static const size_t kStartAmountBlocks = 2;
-    vector<array<T, kBlockSize> *> links_to_blocks_;
-    size_t size_, number_of_allocated_blocks_;
-    size_t block_position__end_, index_position__end_;
-    size_t block_position__begin_, index_position__begin_;
 
-    T *begin_, *end_;
+    vector<shared_ptr<array<T, kBlockSize>>> links_to_blocks_;
 
-    void MoveToNextElement(size_t &, size_t &);
+    int block_position__end_, index_position__end_,
+            block_position__begin_, index_position__begin_;
+
+    size_t size_;
 };
 
 
