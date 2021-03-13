@@ -24,8 +24,6 @@ class Deque
 public:
     Deque();
 
-    ~Deque();
-
     void PushBack(const T &);
 
     void PushFront(const T &);
@@ -34,14 +32,19 @@ public:
 
     void PopFront();
 
-    constexpr size_t Size() const;
+    void Clear();
 
+    constexpr size_t Size() const noexcept;
+
+    constexpr bool Empty() const noexcept;
 
     template<typename T1>
     friend ostream &operator<<(ostream &, const Deque<T1> &);
 
+    T &operator[](const int &);
+
 private:
-    static const size_t kBlockSize = 2;
+    static const size_t kBlockSize = 3;
     static const size_t kStartAmountBlocks = 2;
 
     vector<shared_ptr<array<T, kBlockSize>>> links_to_blocks_;
