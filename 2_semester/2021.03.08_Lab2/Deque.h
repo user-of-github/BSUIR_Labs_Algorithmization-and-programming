@@ -9,6 +9,7 @@
 #include <vector>
 #include <array>
 #include <memory>
+#include <set>
 
 using std::cout;
 using std::vector;
@@ -41,15 +42,21 @@ public:
     template<typename T1>
     friend ostream &operator<<(ostream &, const Deque<T1> &);
 
-    T &operator[](const int &);
+    T &operator[](const size_t &);
 
-private:
+    class Iterator;
+
+    Iterator begin();
+
+    Iterator end();
+
+protected:
     static const size_t kBlockSize = 3;
     static const size_t kStartAmountBlocks = 2;
 
     vector<shared_ptr<array<T, kBlockSize>>> links_to_blocks_;
 
-    int block_position__end_, index_position__end_,
+    size_t block_position__end_, index_position__end_,
             block_position__begin_, index_position__begin_;
 
     size_t size_;

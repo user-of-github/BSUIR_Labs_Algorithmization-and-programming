@@ -6,5 +6,6 @@ CMakeFiles/2021_03_08_Lab2.dir/Deque.cpp.obj: ../Deque.h
 
 CMakeFiles/2021_03_08_Lab2.dir/main.cpp.obj: ../Deque.cpp
 CMakeFiles/2021_03_08_Lab2.dir/main.cpp.obj: ../Deque.h
+CMakeFiles/2021_03_08_Lab2.dir/main.cpp.obj: ../DequeIterator.h
 CMakeFiles/2021_03_08_Lab2.dir/main.cpp.obj: ../main.cpp
 

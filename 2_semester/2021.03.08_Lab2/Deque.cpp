@@ -118,7 +118,7 @@ void Deque<T>::PopFront()
         else
         {
             this->block_position__begin_ += (this->index_position__begin_ == kBlockSize - 1 ? 1 : 0);
-            this->index_position__begin_ = (this->index_position__begin_ == kBlockSize - 1 ? kBlockSize - 1 :
+            this->index_position__begin_ = (this->index_position__begin_ == kBlockSize - 1 ? 0 :
                                             this->index_position__begin_ + 1);
         }
         --this->size_;
@@ -171,7 +171,7 @@ ostream &operator<<(ostream &os, const Deque<T> &obj)
 }
 
 template<typename T>
-T &Deque<T>::operator[](const int &index)
+T &Deque<T>::operator[](const size_t &index)
 {
     if (index < this->size_)
     {
@@ -182,6 +182,20 @@ T &Deque<T>::operator[](const int &index)
 
         return this->links_to_blocks_[block_number]->at(index_in_block);
     }
+}
+
+template<typename T>
+typename Deque<T>::Iterator Deque<T>::begin()
+{
+    return Iterator(this, &(this->links_to_blocks_[this->block_position__begin_]->at(index_position__begin_)),
+                    this->block_position__begin_, this->index_position__begin_);
+}
+
+template<typename T>
+typename Deque<T>::Iterator Deque<T>::end()
+{
+    return ++Iterator(this, &(this->links_to_blocks_[this->block_position__end_]->at(index_position__end_)),
+                      this->block_position__end_, this->index_position__end_);
 }
 
 
