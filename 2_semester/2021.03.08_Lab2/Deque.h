@@ -11,6 +11,7 @@
 #include <memory>
 #include <set>
 
+using std::initializer_list;
 using std::cout;
 using std::vector;
 using std::array;
@@ -18,12 +19,21 @@ using std::size_t;
 using std::ostream;
 using std::shared_ptr;
 using std::make_shared;
+using std::set;
 
 template<typename T>
 class Deque
 {
 public:
+    class Iterator;
+
+    Iterator begin();
+
+    Iterator end();
+
     Deque();
+
+    Deque(const initializer_list<T> &);
 
     void PushBack(const T &);
 
@@ -44,22 +54,21 @@ public:
 
     T &operator[](const size_t &);
 
-    class Iterator;
-
-    Iterator begin();
-
-    Iterator end();
-
 protected:
     static const size_t kBlockSize = 3;
     static const size_t kStartAmountBlocks = 2;
 
     vector<shared_ptr<array<T, kBlockSize>>> links_to_blocks_;
 
-    size_t block_position__end_, index_position__end_,
-            block_position__begin_, index_position__begin_;
+    size_t block_position__end_{}, index_position__end_{},
+            block_position__begin_{}, index_position__begin_{};
 
-    size_t size_;
+    size_t size_{};
+
+    set<Iterator *> created_begin_iterators_;
+    set<Iterator *> created_end_iterators_;
+
+    void UpdateIterators();
 };
 
 

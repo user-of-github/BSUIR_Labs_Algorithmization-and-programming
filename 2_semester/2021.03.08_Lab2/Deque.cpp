@@ -10,6 +10,18 @@ Deque<T>::Deque():size_(0), block_position__end_(0), index_position__end_(0),
 {
     for (auto counter = 0; counter < kStartAmountBlocks; ++counter)
         this->links_to_blocks_.push_back(make_shared<array<T, kBlockSize>>());
+    this->UpdateIterators();
+}
+
+template<typename T>
+Deque<T>::Deque(const initializer_list<T> &data):size_(0), block_position__end_(0), index_position__end_(0),
+                                                 block_position__begin_(0), index_position__begin_(0)
+{
+    for (auto counter = 0; counter < kStartAmountBlocks; ++counter)
+        this->links_to_blocks_.push_back(make_shared<array<T, kBlockSize>>());
+    for (const auto &item : data)
+        this->PushBack(item);
+    this->UpdateIterators();
 }
 
 
@@ -46,6 +58,7 @@ void Deque<T>::PushBack(const T &new_element)
     }
     this->links_to_blocks_[this->block_position__end_]->at(++this->index_position__end_) = new_element;
     ++this->size_;
+    this->UpdateIterators();
 }
 
 template<typename T>
@@ -85,6 +98,7 @@ void Deque<T>::PushFront(const T &new_element)
     }
     this->links_to_blocks_[this->block_position__begin_]->at(--this->index_position__begin_) = new_element;
     ++this->size_;
+    this->UpdateIterators();
 }
 
 template<typename T>
@@ -103,6 +117,7 @@ void Deque<T>::PopBack()
                                           this->index_position__end_ - 1);
         }
         --this->size_;
+        this->UpdateIterators();
     }
 }
 
@@ -122,6 +137,7 @@ void Deque<T>::PopFront()
                                             this->index_position__begin_ + 1);
         }
         --this->size_;
+        this->UpdateIterators();
     }
 }
 
@@ -132,6 +148,8 @@ void Deque<T>::Clear()
     this->block_position__end_ = this->index_position__end_ = this->block_position__begin_ = this->index_position__begin_ = 0;
     while (this->links_to_blocks_.size() != kStartAmountBlocks)
         this->links_to_blocks_.pop_back();
+
+    this->UpdateIterators();
 }
 
 
@@ -187,16 +205,33 @@ T &Deque<T>::operator[](const size_t &index)
 template<typename T>
 typename Deque<T>::Iterator Deque<T>::begin()
 {
-    return Iterator(this, &(this->links_to_blocks_[this->block_position__begin_]->at(index_position__begin_)),
-                    this->block_position__begin_, this->index_position__begin_);
+    auto new_iterator = Iterator(this,
+                                 &(this->links_to_blocks_[this->block_position__begin_]->at(index_position__begin_)),
+                                 this->block_position__begin_, this->index_position__begin_);
+    created_begin_iterators_.insert(&new_iterator);
+    return new_iterator;
 }
 
 template<typename T>
 typename Deque<T>::Iterator Deque<T>::end()
 {
-    return ++Iterator(this, &(this->links_to_blocks_[this->block_position__end_]->at(index_position__end_)),
-                      this->block_position__end_, this->index_position__end_);
+    auto new_iterator = ++Iterator(this,
+                                   &(this->links_to_blocks_[this->block_position__end_]->at(index_position__end_)),
+                                   this->block_position__end_, this->index_position__end_);
+    created_end_iterators_.insert(&new_iterator);
+    return new_iterator;
 }
+
+template<typename T>
+void Deque<T>::UpdateIterators()
+{
+    for (auto &item : this->created_begin_iterators_)
+        item->UpdateBeginIterator();
+
+    for (auto &item : this->created_end_iterators_)
+        item->UpdateEndIterator();
+}
+
 
 
 

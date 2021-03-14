@@ -41,11 +41,11 @@ int main()
     cout << test;
 
     test.Clear();
-    auto counter = 10;
-    while (counter < 32)
+    auto count = 10;
+    while (count < 32)
     {
-        test.PushBack(counter++);
-        test.PushFront(counter++);
+        test.PushBack(count++);
+        test.PushFront(count++);
     }
     cout << test;
 
@@ -53,12 +53,21 @@ int main()
         item = 2000;
     cout << test;*/
 
-   // cout << *test.begin() << "\n";
+    // cout << *test.begin() << "\n";
 
     for (auto counter = 0; counter < 5; ++counter)
         test.PopFront();
-
     cout << test;
-    cout<<*test.begin();
+
+    Deque<int> test2 = {17, 51, 14, 03, 2021};
+    cout << test2; // (5) { 17 51 14  | 3 2021  }
+
+    auto current_begin_test2 = test2.begin();
+    cout << *current_begin_test2 << std::endl; // 17
+
+    test2.PushFront(45);
+    cout << test2; // (6) { 45  | 17 51 14  | 3 2021  }
+    cout << *current_begin_test2 << std::endl; // 45 // begin was UPDATED
+
     return 0;
 }

@@ -16,15 +16,20 @@ class Deque<T>::Iterator : iterator<random_access_iterator_tag, T>
 {
 private:
     Deque<T> *owner_;
-    T *object_;
     size_t block_position_, index_position_;
+    T* object_;
+
+
+
 public:
     Iterator() : owner_(nullptr), object_(nullptr), block_position_(0), index_position_(0)
     {}
 
     Iterator(Deque<T> *owner, T *object, size_t &block_position, size_t &index_position) :
-            owner_(owner), object_(object), block_position_(block_position), index_position_(index_position)
-    {}
+            owner_(owner), block_position_(block_position), index_position_(index_position)
+    {
+        this->object_ = &(this->owner_->links_to_blocks_[this->block_position_]->at(this->index_position_));
+    }
 
     T *operator->();
 
@@ -39,6 +44,10 @@ public:
     constexpr bool operator==(const Iterator &) const noexcept;
 
     constexpr bool operator!=(const Iterator &) const noexcept;
+
+    void UpdateBeginIterator();
+
+    void UpdateEndIterator();
 };
 
 template<typename T>
@@ -87,6 +96,22 @@ template<typename T>
 constexpr bool Deque<T>::Iterator::operator!=(const Deque<T>::Iterator &rhs) const noexcept
 {
     return this->object_ != rhs.object_;
+}
+
+template<typename T>
+void Deque<T>::Iterator::UpdateBeginIterator()
+{
+    this->index_position_ = this->owner_->index_position__begin_;
+    this->block_position_ = this->owner_->block_position__begin_;
+    this->object_ = &(this->owner_->links_to_blocks_[this->block_position_]->at(this->index_position_));
+}
+
+template<typename T>
+void Deque<T>::Iterator::UpdateEndIterator()
+{
+    this->index_position_ = this->owner_->index_position__end_;
+    this->block_position_ = this->owner_->block_position__end_;
+    this->object_ = &(this->owner_->links_to_blocks_[this->block_position_]->at(this->index_position_));
 }
 
 #endif //INC_2021_03_08_LAB2_DEQUEITERATOR_H
