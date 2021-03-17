@@ -64,7 +64,7 @@ template<class T>
 List<T>::List(const std::initializer_list<T> &data): size_(0), first_(nullptr), last_(nullptr)
 {
     this->CreatePseudoLast();
-    unsigned int counter = 0;
+    size_t counter = 0;
     for (auto &item : data)
     {
         ++counter;
