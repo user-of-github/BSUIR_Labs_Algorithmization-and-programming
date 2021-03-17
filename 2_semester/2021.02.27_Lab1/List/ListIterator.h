@@ -6,9 +6,6 @@
 template<class T>
 class List<T>::Iterator : std::iterator<std::bidirectional_iterator_tag, T>
 {
-private:
-    ListItem *object_;
-
 public:
     Iterator();
 
@@ -18,15 +15,23 @@ public:
 
     T &operator*();
 
-    ListItem operator*() const;
+
+    T operator*() const;
 
     Iterator &operator++();
 
+    const Iterator operator++(int);
+
     Iterator &operator--();
+
+    const Iterator operator--(int);
 
     bool operator==(const Iterator &) const;
 
     bool operator!=(const Iterator &) const;
+
+private:
+    ListItem *object_;
 };
 
 
@@ -51,7 +56,7 @@ typename List<T>::ListItem *List<T>::Iterator::operator->()
 }
 
 template<class T>
-typename List<T>::ListItem List<T>::Iterator::operator*() const
+T List<T>::Iterator::operator*() const
 {
     return *this->object_;
 }
@@ -80,6 +85,22 @@ typename List<T>::Iterator &List<T>::Iterator::operator++()
 {
     this->object_ = this->object_->next_;
     return *this;
+}
+
+template<class T>
+const typename List<T>::Iterator List<T>::Iterator::operator++(int)
+{
+    Iterator temp(this->object_);
+    ++(*this);
+    return temp;
+}
+
+template<class T>
+const typename List<T>::Iterator List<T>::Iterator::operator--(int)
+{
+    Iterator temp(this->object_);
+    --(*this);
+    return temp;
 }
 
 #endif //LIST_LISTITERATOR_H

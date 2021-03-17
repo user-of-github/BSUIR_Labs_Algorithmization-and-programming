@@ -15,8 +15,7 @@ public:
 template<class T>
 void List<T>::CopyListFrom(const List<T> &from)
 {
-    while (!this->Empty())
-        this->PopBack();
+    this->Clear();
 
     ListItem *current = from.first_;
     while (current != from.pseudo_last_ && current != nullptr)
@@ -88,8 +87,7 @@ List<T>::List(List<T> &&other) noexcept: size_(0), first_(nullptr), last_(nullpt
     this->CreatePseudoLast();
     this->size_ = 0;
     this->CopyListFrom(other);
-    while (!other.Empty())
-        other.PopBack();
+    other.Clear();
     this->UpdatePseudoLast();
     other.CreatePseudoLast();
 }
@@ -181,20 +179,6 @@ unsigned int List<T>::Size() const
     return this->size_;
 }
 
-template<class T>
-void List<T>::Print() const
-{
-    auto *item = this->first_;
-
-    cout << "(" << this->size_ << "): ";
-    cout << "{ ";
-    while (item != this->pseudo_last_ && item != nullptr)
-    {
-        cout << item->value_ << " ";
-        item = item->next_;
-    }
-    cout << "}\n";
-}
 
 template<class T>
 bool List<T>::Empty() const
@@ -228,9 +212,32 @@ List<T> &List<T>::operator=(List<T> &&other) noexcept
     this->CopyListFrom(other);
     this->UpdatePseudoLast();
 
-    while (!other.Empty())
-        other.PopBack();
+    other.Clear();
 
     other.CreatePseudoLast();
     return *this;
+}
+
+template<typename T1>
+ostream &operator<<(ostream &os, const List <T1> &obj)
+{
+    auto *item = obj.first_;
+
+    os << "(" << obj.size_ << "): ";
+    os << "{ ";
+    while (item != obj.pseudo_last_ && item != nullptr)
+    {
+        os << item->value_ << " ";
+        item = item->next_;
+    }
+    os << "}\n";
+
+    return os;
+}
+
+template<class T>
+void List<T>::Clear()
+{
+    while (!this->Empty())
+        this->PopBack();
 }

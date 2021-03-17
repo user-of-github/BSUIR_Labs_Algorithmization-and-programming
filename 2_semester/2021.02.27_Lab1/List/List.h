@@ -5,22 +5,12 @@
 #include <iterator>
 
 using std::cout;
+using std::size_t;
+using std::ostream;
 
 template<class T>
 class List
 {
-private:
-    class ListItem;
-
-    ListItem *first_, *last_, *pseudo_last_;
-    unsigned int size_;
-
-    void CopyListFrom(const List<T> &);
-
-    void CreatePseudoLast();
-
-    void UpdatePseudoLast();
-
 public:
     class Iterator;
 
@@ -40,9 +30,9 @@ public:
 
     void PopFront();
 
-    unsigned int Size() const;
+    void Clear();
 
-    void Print() const;
+    size_t Size() const;
 
     bool Empty() const;
 
@@ -53,6 +43,21 @@ public:
     List<T> &operator=(const List<T> &);
 
     List<T> &operator=(List<T> &&) noexcept;
+
+    template<typename T1>
+    friend ostream &operator<<(ostream &, const List <T1> &);
+
+private:
+    class ListItem;
+
+    ListItem *first_, *last_, *pseudo_last_;
+    size_t size_;
+
+    void CopyListFrom(const List<T> &);
+
+    void CreatePseudoLast();
+
+    void UpdatePseudoLast();
 };
 
 #endif //INC_2021_02_27_LAB1_LIST_H
