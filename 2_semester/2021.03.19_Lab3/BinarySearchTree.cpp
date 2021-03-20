@@ -68,12 +68,9 @@ shared_ptr<typename Map<T1, T2>::Node> Map<T1, T2>::FindElement(const T1 &value)
 {
     auto search_element = this->root_;
 
-    while (search_element != shared_ptr<Node>(nullptr))
-    {
-        if ((search_element->value_).first == value) break;
+    while (search_element != shared_ptr<Node>(nullptr) || (search_element->value_).first != value)
         search_element = value <= search_element->value_.first ? search_element->left_child_
                                                                : search_element->right_child_;
-    }
 
     return search_element;
 }
