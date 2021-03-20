@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.03.19_Lab3/BinarySearchTree.cpp
+BinarySearchTree.h
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.03.19_Lab3/BinarySearchTree.h
+
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.03.19_Lab3/BinarySearchTree.h
+memory
+-
+iostream
+-
+
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.03.19_Lab3/main.cpp
+BinarySearchTree.h
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.03.19_Lab3/BinarySearchTree.h
+BinarySearchTree.cpp
+C:/Users/User/Desktop/Other/HomeWork/Fundamentals Of Algorithmization And Programming/2_semester/2021.03.19_Lab3/BinarySearchTree.cpp
+iostream
+-
+
