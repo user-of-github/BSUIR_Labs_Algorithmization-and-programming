@@ -76,9 +76,7 @@ void HashTable<KeyType, ValueType, HasherType>::Erase(const KeyType &key)
     if (it == end(this->data_[index]))
         return;
 
-
     this->data_[index].erase_after(current);
-
 
     --this->number_of_elements_;
 }
@@ -129,7 +127,6 @@ constexpr ValueType HashTable<KeyType, ValueType, HasherType>::operator[](const 
     auto index = static_cast<size_t>(this->hash_(key)) % this->array_length_;
     if (this->data_[index].empty())
         this->Insert(key, ValueType());
-
 
     for (const auto &item : this->data_[index])
         if (item.first == key)
