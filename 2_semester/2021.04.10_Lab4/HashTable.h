@@ -47,7 +47,8 @@ private:
     constexpr static const double kRehashSize = 0.75;
 
     HasherType hash_;
-    size_t array_length_, number_of_elements_;
+    size_t array_length_,
+            number_of_elements_;
     forward_list<pair<KeyType, ValueType>> *data_;
 
     static void

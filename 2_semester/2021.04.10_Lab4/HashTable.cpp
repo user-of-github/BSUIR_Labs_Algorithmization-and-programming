@@ -38,7 +38,7 @@ constexpr bool HashTable<KeyType, ValueType, HasherType>::Contains(const KeyType
 template<typename KeyType, typename ValueType, typename HasherType>
 void HashTable<KeyType, ValueType, HasherType>::Insert(const KeyType &key, const ValueType &value)
 {
-    if ((double) ((double) this->number_of_elements_ / (double) this->array_length_) > kRehashSize)
+    if ((double) ((double) this->number_of_elements_ / this->array_length_) > kRehashSize)
         this->ReHash();
 
     auto index = static_cast<size_t>(this->hash_(key)) % this->array_length_;
