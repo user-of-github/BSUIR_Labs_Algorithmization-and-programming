@@ -66,6 +66,6 @@ int main()
     auto test3_move = HashTable<string, unsigned long long>();
     test3_move = std::move(test);
     cout << test3_move; // HashTable(4): [137]: Google:7000  LG:1500   | [219]: Huawei:220   | [284]: Samsung:11000   |
-
+  
     return 0;
 }
