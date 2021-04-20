@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021-04-20 17:34:37.000.639,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2021-04-20 17:34:37.000.310,=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2021-04-20 17:35:18.000.744,C:\Users\User\Desktop\2021.04.20_Lab5\Fractal\Unit1.cpp=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2021-04-20 17:35:18.000.744,C:\Users\User\Desktop\2021.04.20_Lab5\Fractal\Unit1.dfm=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2021-04-20 17:35:18.000.744,C:\Users\User\Desktop\2021.04.20_Lab5\Fractal\Unit1.h=C:\Users\User\Documents\Embarcadero\Studio\Projects\Unit1.h</Transaction>
+    <Transaction>2021-04-20 17:35:19.000.861,C:\Users\User\Desktop\2021.04.20_Lab5\Fractal\Project1PCH1.h=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2021-04-20 17:35:20.000.829,C:\Users\User\Desktop\2021.04.20_Lab5\Fractal\Project1.cbproj=C:\Users\User\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>
